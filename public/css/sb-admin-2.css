@@ -10,33 +10,17 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
- .right{
-  top: 20px;
- right: 1px;
- border-style: solid;
-   border-width: 1px;
-   border-color: rgba(51, 170, 51, .25); 
-   border-bottom: 0;
-   border-top-left-radius: 10px;
-   border-bottom-left-radius: 10px;
-   position: absolute;
-   width: 15%;
-   height:95%;
-   background-color: rgba(155, 155, 155, 0.63);
-   -webkit-box-shadow: -17px -2px 23px -6px rgba(0,0,0,0.43);
-   -moz-box-shadow: -17px -2px 23px -6px rgba(0,0,0,0.43);
-   box-shadow: -17px -2px 23px -6px rgba(0,0,0,0.43);
- }
- 
- .rlist{
-       overflow-y:auto;
-   width:100%;
-   height: 95%;
-   border-bottom-left-radius: 10px;
-   border-top-right-radius: 10px;
-   border-bottom-right-radius: 10px;
-   background-color: rgba(255, 255, 255, 0.637);
- }
+.crack_items{
+  border-radius: 10px;
+padding: 10px;
+margin-bottom: 5px;
+background-color:#e4e8ffa6;
+}
+.date_home{
+  padding-top: 2px;
+  display:inline;
+  font-size: 0.8rem;
+}
 :root {
   --blue: #4e73df;
   --indigo: #6610f2;

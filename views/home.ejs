@@ -1,0 +1,127 @@
+<%-include("partials/header")-%>
+
+  
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+  
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Home</h1>
+            <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
+            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addCrackModal" style="margin-bottom: 20px;">Add Crack Analysis</button>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Crack Database</h6>
+                
+              </div>
+              <div class="card-body">
+                <% if(data.length>0){ %>
+                <% for(i=0;i<data.length; i++){ %>
+                  <div class="crack_items">
+                  <h5><%= data[i].buildingName%></h5>
+                  <a href="cracks/<%=data[i].id%>" class="btn btn-primary">View</a>
+                  <form action="/delete" method="post" style="display: inline;">
+                    <button name="delete"class="btn btn-danger" type="submit" value="<%=data[i].id%>">Delete</button>
+                    <h6 class="date_home">Date Uploaded: <%=data[i].date%></h6>
+                  </form>
+                </div>
+                <% } %>
+                <% } else{ %>  
+                  <h5 style="text-align: center;">No entry...</h5>
+               <% } %>
+               </div>
+            </div>
+  
+          </div>
+          <!-- /.container-fluid -->
+  
+        </div>
+        <!-- End of Main Content -->
+  
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Your Website 2019</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+  
+      </div>
+      <!-- End of Content Wrapper -->
+  
+    </div>
+    <!-- End of Page Wrapper -->
+  
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+  
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+<!-- Modal -->
+<div class="modal fade" id="addCrackModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Crack Analysis</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="/home" method="post"enctype="multipart/form-data">
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="name">Building Name</label>
+                <input type="text" name="buildingName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="name">Location</label>
+                <input type="text" name="location" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="name">Photos</label>
+                <input type="file" name="img" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="name">Author</label>
+                <input type="text" name="author" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="name">Date</label>
+                <input type="date" name="date" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="message">Recommendation</label>
+                <textarea name="recommendation" class="form-control"></textarea>
+            </div>	
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
+<%-include("partials/footer")-%>
